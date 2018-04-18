@@ -1,0 +1,3 @@
+exon_homepage:
+    path:     /
+    defaults: { _controller: ExonBundle:Default:index }
