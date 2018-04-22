@@ -10,4 +10,14 @@ class DefaultController extends Controller
     {
         return $this->render('ExonBundle:Default:index.html.twig');
     }
+
+    public function adminindexAction()
+    {
+        return $this->render('ExonBundle:admin:homepage.html.twig');
+    }
+
+
+
+
+
 }
