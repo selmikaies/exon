@@ -1,8 +1,6 @@
 user_homepage:
     path:     /
     defaults: { _controller: ExonBundle:Default:index }
-
-adminindex
 admin_homepage:
     path:     /admin/
     defaults: { _controller: ExonBundle:Default:adminindex }
