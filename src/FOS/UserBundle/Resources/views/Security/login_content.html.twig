@@ -18,19 +18,75 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
-<form action="{{ path("fos_user_security_check") }}" method="post">
-    {% if csrf_token %}
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-    {% endif %}
 
-    <label for="username">{{ 'security.login.username'|trans }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form" action="{{ path("fos_user_security_check") }}" method="post">
+                {% if csrf_token %}
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                {% endif %}
 
-    <label for="password">{{ 'security.login.password'|trans }}</label>
-    <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
+                <span class="login100-form-title p-b-43">
+						Login
+					</span>
 
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
 
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-</form>
+                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                    <input class="input100" type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
+
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">{{ 'security.login.username'|trans }}</span>
+                </div>
+
+
+                <div class="wrap-input100 validate-input" data-validate="Password is required">
+                    <input  class="input100" type="password" id="password" name="_password" required="required" autocomplete="current-password" />
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">{{ 'security.login.password'|trans }}</span>
+                </div>
+
+                <div class="flex-sb-m w-full p-t-3 p-b-32">
+
+                    <div class="contact100-form-checkbox">
+                        <input class="input-checkbox100" id="remember_me" type="checkbox"  name="_remember_me" value="on" >
+                        <label class="label-checkbox100" for="remember_me">
+                            {{ 'security.login.remember_me'|trans }}
+                        </label>
+                    </div>
+
+                    <div>
+                        <a href="#" class="txt1">
+                            Forgot Password?
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="container-login100-form-btn">
+
+                    <input class="login100-form-btn" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                </div>
+
+                <!--div class="text-center p-t-46 p-b-20">
+						<span class="txt2">
+							or sign up using
+						</span>
+                </div-->
+
+                <!--div class="login100-form-social flex-c-m">
+                    <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                        <i class="fa fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </div-->
+            </form>
+
+            <div class="login100-more" style="background-image: url('{{ asset ('login/images/bg-01.jpg')}}');">
+            </div>
+        </div>
+    </div>
+</div>
